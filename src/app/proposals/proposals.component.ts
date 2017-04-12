@@ -18,6 +18,9 @@ export class ProposalsComponent {
   constructor(public dialog: MdDialog, public proposalsService: ProposalsService) {}
 
   ngOnInit() {
+
+    // this.proposalsService.validatePosition$();
+
     this.proposalsService.getAllProposals$()
       .subscribe(proposals => this.proposals = proposals.content);
   }

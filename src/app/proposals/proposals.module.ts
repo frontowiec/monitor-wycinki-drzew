@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MaterialModule, MdButtonModule} from "@angular/material";
+import {FormsModule} from "@angular/forms";
 
 import {ProposalDialogComponent} from "./proposal-dialog/proposal-dialog.component";
 import {ProposalItemComponent} from "./proposal-item/proposal-item.component";
 import {ProposalsComponent} from "./proposals.component";
 import {ProposalsService} from "./proposals.service";
 
+
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    MdButtonModule
+    MdButtonModule,
+    FormsModule
   ],
   declarations: [
     ProposalsComponent,

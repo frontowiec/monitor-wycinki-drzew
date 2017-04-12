@@ -5,25 +5,31 @@
 
   <form id="gis-validate">
     <md-input-container>
-      <input mdInput placeholder="gr_rej_max" [disabled]="isValidate">
+      <input type="text" mdInput placeholder="szerokość geograficzna" [disabled]="isValidate" [(ngModel)]="latitude" name="latitude" required>
     </md-input-container>
     <md-input-container>
-      <input mdInput placeholder="numer_dz" [disabled]="isValidate">
-    </md-input-container>
-    <md-input-container>
-      <input mdInput placeholder="obreb" [disabled]="isValidate">
+      <input type="text" mdInput placeholder="długość geograficzna" [disabled]="isValidate" [(ngModel)]="longitude" name="longitude" required>
     </md-input-container>
   </form>
 
   <form id="add-proposal" [hidden]="!isValidate">
     <md-input-container>
-      <input mdInput placeholder="locationDesc">
+      <input type="text" mdInput placeholder="name" [(ngModel)]="proposal.name" name="name" required>
     </md-input-container>
     <md-input-container>
-      <input mdInput placeholder="comment">
+      <input type="text" mdInput placeholder="lastName" [(ngModel)]="proposal.lastName" name="lastName" required>
     </md-input-container>
     <md-input-container>
-      <input mdInput placeholder="trees">
+      <input type="text" mdInput placeholder="email" [(ngModel)]="proposal.email" name="emial" required>
+    </md-input-container>
+    <md-input-container>
+      <input type="text" mdInput placeholder="street" [(ngModel)]="proposal.street" name="street" required>
+    </md-input-container>
+    <md-input-container>
+      <input type="text" mdInput placeholder="locationDesc" [(ngModel)]="proposal.locationDesc" name="locationDesc" required>
+    </md-input-container>
+    <md-input-container>
+      <input type="number" mdInput placeholder="trees" [(ngModel)]="proposal.trees" name="trees" required>
     </md-input-container>
   </form>
 
