@@ -1,8 +1,10 @@
 <form>
   <md-input-container>
-    <input mdInput placeholder="Nazwa użytkownika">
+    <input mdInput #username placeholder="Nazwa użytkownika">
   </md-input-container>
   <md-input-container>
-    <input mdInput placeholder="Hasło">
+    <input mdInput #password placeholder="Hasło">
   </md-input-container>
 </form>
+
+<button md-button (click)="login(username.value, password.value)">Zaloguj</button>
