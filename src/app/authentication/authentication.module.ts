@@ -8,6 +8,7 @@ import {AuthHttp, AuthConfig} from "angular2-jwt";
 import {AuthenticationService} from "./authentication.service";
 import {UnauthorizedComponent} from "./unauthorized/unauthorized.component";
 import {AuthenticationGuardService} from "./authentication-guard.service";
+import {UserService} from "./user.service";
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -21,7 +22,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
       deps: [Http, RequestOptions]
     },
     AuthenticationService,
-    AuthenticationGuardService
+    AuthenticationGuardService,
+    UserService
   ],
   imports: [
     CommonModule,

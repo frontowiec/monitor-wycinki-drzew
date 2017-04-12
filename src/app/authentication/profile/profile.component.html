@@ -28,6 +28,7 @@
         <button md-button>Zapisz</button>
       </div>
     </md-tab>
-    <md-tab label="List użytkowników">Lista :)</md-tab>
+    <md-tab label="List użytkowników" *ngIf="isAdmin()">Lista :)</md-tab>
+    <md-tab label="Załóż profil" *ngIf="isAdmin()">Lista :)</md-tab>
   </md-tab-group>
 </div>
