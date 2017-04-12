@@ -1,16 +1,16 @@
 <md-toolbar color="primary">
   <span>monitoring wycinki drzew</span>
   <span class="fill-remaining-space"></span>
-  <button md-icon-button routerLink="/proposals" routerLinkActive="active">
+  <button mdTooltip="Lista miejsc" md-icon-button routerLink="/proposals" routerLinkActive="active">
     <md-icon>list</md-icon>
   </button>
-  <button md-icon-button routerLink="/profile" routerLinkActive="active" *ngIf="loggedIn()">
+  <button mdTooltip="Profil" md-icon-button routerLink="/profile" routerLinkActive="active" *ngIf="loggedIn()">
     <md-icon>person</md-icon>
   </button>
-  <button md-icon-button *ngIf="!loggedIn()" routerLink="/login">
+  <button mdTooltip="Zaloguj się" md-icon-button *ngIf="!loggedIn()" routerLink="/login">
     <md-icon>arrow_upward</md-icon>
   </button>
-  <button md-icon-button *ngIf="loggedIn()" (click)="logout()">
+  <button mdTooltip="Wyloguj się" md-icon-button *ngIf="loggedIn()" (click)="logout()">
     <md-icon>arrow_downward</md-icon>
   </button>
 </md-toolbar>

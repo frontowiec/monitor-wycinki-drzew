@@ -1,4 +1,14 @@
 #user-profile {
-  display: flex;
-  flex-flow: column nowrap;
+  //display: flex;
+  //flex-flow: column nowrap;
+
+  form {
+    display: flex;
+    flex-flow: column nowrap;
+
+    .save-button {
+      align-self: flex-end;
+    }
+  }
 }
+

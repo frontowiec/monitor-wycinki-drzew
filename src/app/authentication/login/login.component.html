@@ -1,10 +1,12 @@
-<form>
-  <md-input-container>
-    <input mdInput #username placeholder="Nazwa użytkownika">
-  </md-input-container>
-  <md-input-container>
-    <input mdInput #password placeholder="Hasło">
-  </md-input-container>
-</form>
+<div id="login">
+  <form>
+    <md-input-container>
+      <input type="text" mdInput #username placeholder="Nazwa użytkownika">
+    </md-input-container>
+    <md-input-container>
+      <input type="password" mdInput #password placeholder="Hasło">
+    </md-input-container>
+  </form>
 
-<button md-button (click)="login(username.value, password.value)">Zaloguj</button>
+  <button md-button (click)="login(username.value, password.value)">Zaloguj</button>
+</div>

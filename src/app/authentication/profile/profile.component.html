@@ -44,8 +44,8 @@
           <md-input-container>
             <input mdInput placeholder="Skrócona nazwa">
           </md-input-container>
+          <button class="save-button" md-button (click)="updateUser()">Zapisz</button>
         </form>
-        <button md-button (click)="updateUser()">Zapisz</button>
       </div>
     </md-tab>
     <md-tab label="List użytkowników" *ngIf="user.isAdmin">
@@ -57,7 +57,7 @@
             <span [hidden]="!u.active">Aktywny</span>
             <span [hidden]="u.active">Nieaktywny</span>
           </p>
-          <button md-icon-button (click)="editUser(u)">
+          <button mdTooltip="Edytuj profil" md-icon-button (click)="editUser(u)">
             <md-icon>mode_edit</md-icon>
           </button>
         </md-list-item>
@@ -79,11 +79,11 @@
           <md-input-container>
             <input mdInput #password placeholder="Hasło">
           </md-input-container>
+          <button class="save-button" md-button
+                  (click)="createAccount({name: name.value, lastName: lastName.value, email: email.value, password: password.value})">
+            Utwórz konto
+          </button>
         </form>
-        <button md-button
-                (click)="createAccount({name: name.value, lastName: lastName.value, email: email.value, password: password.value})">
-          Utwórz konto
-        </button>
       </div>
 
     </md-tab>
