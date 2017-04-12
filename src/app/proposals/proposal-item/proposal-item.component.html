@@ -1,16 +1,18 @@
 <md-card>
-  <md-card-title>plac Inwalidów Wojennych 378/6</md-card-title>
-  <md-card-subtitle>Skwer pomiędzy Placem Inwalidów a ulicą Obrońców Westerplatte</md-card-subtitle>
+  <md-card-title>{{data.street}} {{data.parcelNumber}}</md-card-title>
+  <md-card-subtitle>{{data.locationDesc}}</md-card-subtitle>
   <md-card-content>
-    <p>Powodem wycinki jest podniesienie estetyki miejsca</p>
-    <p>Wycięto 5 drzew</p>
-    <div class="footer">
-      <p>Ostatnio modyfikowano przez: User, Wydział Piękności i Dobrobytu (WPiD) o godzinie 2017-04-11T12:36:22+0000</p>
-      <p>email: user@test.pl telefon: 123456789</p>
+    <p>Wycięto {{data.trees}} drzew</p>
+    <p *ngIf="data.targetDesc">Powodem wycinki jest {{data.targetDesc}}</p>
+    <p>{{data.comment}}</p>
+    <div class="footer" *ngIf="data.name">
+      <p>Ostatnio modyfikowano przez: {{data.name}} {{data.lastName}}, {{data.actualDepartment.name}}
+        ({{data.actualDepartment.shortName}}) o godzinie {{data.modificationDate}}</p>
+      <p>email: {{data.email}}</p>
     </div>
   </md-card-content>
   <md-card-actions>
     <button md-button>EDYTUJ</button>
   </md-card-actions>
-  <img src="https://placehold.it/100x100" class="map-preview" />
+  <img src="https://placehold.it/100x100" class="map-preview"/>
 </md-card>
