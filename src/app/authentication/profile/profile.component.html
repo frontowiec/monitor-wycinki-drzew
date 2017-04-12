@@ -28,7 +28,18 @@
         <button md-button>Zapisz</button>
       </div>
     </md-tab>
-    <md-tab label="List użytkowników" *ngIf="user.isAdmin">Lista :)</md-tab>
+    <md-tab label="List użytkowników" *ngIf="user.isAdmin">
+      <md-list>
+        <md-list-item *ngFor="let u of users">
+          <h3 md-line> {{u.name}} {{u.lastName}} ({{u.username}})</h3>
+          <p md-line>
+            <span> {{u.email}}</span>
+            <span [hidden]="!u.active">Aktywny</span>
+            <span [hidden]="u.active">Nieaktywny</span>
+          </p>
+        </md-list-item>
+      </md-list>
+    </md-tab>
     <md-tab label="Załóż profil" *ngIf="user.isAdmin">Lista :)</md-tab>
   </md-tab-group>
 </div>

@@ -7,12 +7,11 @@ import {IUser} from "./user.model";
 import {Observable} from "rxjs";
 import {AuthHttp} from "angular2-jwt";
 import {BASE_URL} from "./config";
-import {Headers, RequestOptions} from "@angular/http";
 
 @Injectable()
 export class UserService {
 
-  constructor(public http: AuthHttp) {
+  constructor(public authHttp: AuthHttp) {
   }
 
   getUser(): IUser {
@@ -20,7 +19,7 @@ export class UserService {
   }
 
   getAllUsers$(): Observable<IUser[]> {
-    return this.http.get(`${BASE_URL}/accounts`)
+    return this.authHttp.get(`${BASE_URL}/accounts`)
       .map(response => response.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
