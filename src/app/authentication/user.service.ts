@@ -23,4 +23,10 @@ export class UserService {
       .map(response => response.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
+
+  createAccount$(profile) {
+    return this.authHttp.put(`${BASE_URL}/accounts`, {...profile})
+      .map(response => response.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
 }

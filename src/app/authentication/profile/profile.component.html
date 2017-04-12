@@ -40,6 +40,29 @@
         </md-list-item>
       </md-list>
     </md-tab>
-    <md-tab label="Załóż profil" *ngIf="user.isAdmin">Lista :)</md-tab>
+    <md-tab label="Załóż profil" *ngIf="user.isAdmin">
+
+      <div>
+        <form>
+          <md-input-container>
+            <input mdInput #name placeholder="Imię">
+          </md-input-container>
+          <md-input-container>
+            <input mdInput #lastName placeholder="Nazwisko">
+          </md-input-container>
+          <md-input-container>
+            <input mdInput #email placeholder="Email">
+          </md-input-container>
+          <md-input-container>
+            <input mdInput #password placeholder="Hasło">
+          </md-input-container>
+        </form>
+        <button md-button
+                (click)="createAccount({name: name.value, lastName: lastName.value, email: email.value, password: password.value})">
+          Utwórz konto
+        </button>
+      </div>
+
+    </md-tab>
   </md-tab-group>
 </div>
