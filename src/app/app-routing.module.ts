@@ -7,12 +7,15 @@ import {NgModule} from "@angular/core";
 import {ProposalsComponent} from "./proposals/proposals.component";
 import {ProfileComponent} from "./authentication/profile/profile.component";
 import {LoginComponent} from "./authentication/login/login.component";
+import {AuthenticationGuardService} from "./authentication/authentication-guard.service";
+import {UnauthorizedComponent} from "./authentication/unauthorized/unauthorized.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/proposals', pathMatch: 'full'},
   {path: 'proposals', component: ProposalsComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthenticationGuardService]},
+  {path: 'login', component: LoginComponent},
+  { path: 'unauthorized', component: UnauthorizedComponent }
 ];
 
 @NgModule({
