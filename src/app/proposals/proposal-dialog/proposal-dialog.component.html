@@ -1,0 +1,36 @@
+<div id="proposal-dialog">
+  <header>
+    <span class="md-headline">Utwórz nowy punkt wycinki drzew</span>
+  </header>
+
+  <form id="gis-validate">
+    <md-input-container>
+      <input mdInput placeholder="gr_rej_max" [disabled]="isValidate">
+    </md-input-container>
+    <md-input-container>
+      <input mdInput placeholder="numer_dz" [disabled]="isValidate">
+    </md-input-container>
+    <md-input-container>
+      <input mdInput placeholder="obreb" [disabled]="isValidate">
+    </md-input-container>
+  </form>
+
+  <form id="add-proposal" [hidden]="!isValidate">
+    <md-input-container>
+      <input mdInput placeholder="locationDesc">
+    </md-input-container>
+    <md-input-container>
+      <input mdInput placeholder="comment">
+    </md-input-container>
+    <md-input-container>
+      <input mdInput placeholder="trees">
+    </md-input-container>
+  </form>
+
+  <footer>
+    <button md-button (click)="nextStep()">{{buttonName}}</button>
+    <button md-button (click)="close()">zamknij</button>
+  </footer>
+
+</div>
+

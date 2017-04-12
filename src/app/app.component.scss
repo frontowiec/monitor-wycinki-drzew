@@ -1,11 +1,25 @@
-#main {
+md-toolbar {
 
-  md-toolbar {
-
-    .fill-remaining-space {
-      // This fills the remaining space, by using flexbox.
-      // Every toolbar row uses a flexbox row layout.
-      flex: 1 1 auto;
-    }
+  .active {
+    display: none;
   }
+
+  span:first-child {
+    text-transform: uppercase;
+  }
+}
+
+#content {
+  background-color: rgb(245, 245, 245);
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 50px;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
 }

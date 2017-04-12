@@ -1,0 +1,20 @@
+md-card {
+  margin-top: 20px;
+
+  md-card-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .map-preview {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+
+  .footer {
+    font-size: 14px;
+    font-family: "Roboto Light";
+    color: rgba(0, 0, 0, 0.71);
+  }
+}

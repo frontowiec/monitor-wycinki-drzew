@@ -4,10 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import {MaterialModule} from "@angular/material";
+import {MaterialModule, MdButtonModule} from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import 'hammerjs';
+import {AppRoutingModule} from "./app-routing.module";
+import {ProposalsModule} from "./proposals/proposals.module";
+import {AuthenticationModule} from "./authentication/authentication.module";
 
 @NgModule({
   declarations: [
@@ -18,7 +21,11 @@ import 'hammerjs';
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
+    MdButtonModule,
+    ProposalsModule,
+    AuthenticationModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
