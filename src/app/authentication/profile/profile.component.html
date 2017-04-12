@@ -1,21 +1,41 @@
 <div id="user-profile">
   <h1>Witaj, {{user.username}}</h1>
 
-  <md-tab-group>
+  <md-tab-group [(selectedIndex)]="selectetTabIndex">
     <md-tab label="Edytuj profil">
       <div>
         <form>
           <md-input-container>
-            <input mdInput placeholder="Nazwa użytkownika">
+            <input mdInput placeholder="Nazwa użytkownika" [(ngModel)]="userToEdit.username"
+                   type="text" name="username" required  #username="ngModel">
+            <div [hidden]="username.valid || username.pristine"
+                 class="alert alert-danger">
+              Pole jest wymagane
+            </div>
           </md-input-container>
           <md-input-container>
-            <input mdInput placeholder="Nazwisko">
+            <input mdInput placeholder="Nazwisko" [(ngModel)]="userToEdit.lastName"
+                   type="text" name="lastname" required #lastname="ngModel">
+            <div [hidden]="lastname.valid || lastname.pristine"
+                 class="alert alert-danger">
+              Pole jest wymagane
+            </div>
           </md-input-container>
           <md-input-container>
-            <input mdInput placeholder="Email">
+            <input mdInput placeholder="Email" [(ngModel)]="userToEdit.email"
+                   type="email" name="email" required #email="ngModel">
+            <div [hidden]="lastname.valid || lastname.pristine"
+                 class="alert alert-danger">
+              Pole jest wymagane
+            </div>
           </md-input-container>
           <md-input-container>
-            <input mdInput placeholder="Hasło">
+            <input mdInput placeholder="Hasło"  [(ngModel)]="userToEdit.password"
+                   type="password" name="password" required #password="ngModel">
+            <div [hidden]="password.valid || password.pristine"
+                 class="alert alert-danger">
+              Pole jest wymagane
+            </div>
           </md-input-container>
           Wydział
           <md-input-container>
@@ -25,7 +45,7 @@
             <input mdInput placeholder="Skrócona nazwa">
           </md-input-container>
         </form>
-        <button md-button>Zapisz</button>
+        <button md-button (click)="updateUser()">Zapisz</button>
       </div>
     </md-tab>
     <md-tab label="List użytkowników" *ngIf="user.isAdmin">
@@ -37,6 +57,9 @@
             <span [hidden]="!u.active">Aktywny</span>
             <span [hidden]="u.active">Nieaktywny</span>
           </p>
+          <button md-icon-button (click)="editUser(u)">
+            <md-icon>mode_edit</md-icon>
+          </button>
         </md-list-item>
       </md-list>
     </md-tab>

@@ -29,4 +29,10 @@ export class UserService {
       .map(response => response.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
+
+  update$(user: IUser) {
+    return this.authHttp.put(`${BASE_URL}/accounts/${user.id}`, {...user})
+      .map(response => response.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
 }

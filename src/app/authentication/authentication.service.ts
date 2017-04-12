@@ -17,7 +17,7 @@ export class AuthenticationService {
   createToken$(username: string, password: string) {
     return this.http.post(`${BASE_URL}/tokens`, {username, password})
       .map(response => response.json())
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'))
+      .catch((error: any) => Observable.throw('Server error'))
   }
 
   // todo: intrface tak by można było łatwo wymienić implementacje na np. cookies

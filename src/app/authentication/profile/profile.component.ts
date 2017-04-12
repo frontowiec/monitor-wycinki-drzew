@@ -16,6 +16,9 @@ import {MdSnackBar} from "@angular/material";
 export class ProfileComponent implements OnInit{
   user: IUser = this.userService.getUser();
   users: IUser[] = [];
+  userToEdit = Object.assign({}, this.user);
+  selectetTabIndex: number = 0;
+
   constructor(public userService: UserService, public snackBar: MdSnackBar) {}
 
   ngOnInit(): void {
@@ -29,6 +32,20 @@ export class ProfileComponent implements OnInit{
     this.userService.createAccount$(profile)
       .subscribe(account => {
         this.snackBar.open(`Wysłano mail aktywacyjny na adres ${account.email}`, '', {
+          duration: 2000,
+        });
+      })
+  }
+
+  editUser(user: IUser) {
+    this.userToEdit = user;
+    this.selectetTabIndex = 0;
+  }
+
+  updateUser() {
+    this.userService.update$(this.userToEdit)
+      .subscribe(user => {
+        this.snackBar.open(`Pomyślnie aktualizowano dane użytkownika ${user.username}`, '', {
           duration: 2000,
         });
       })

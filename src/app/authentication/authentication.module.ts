@@ -9,6 +9,7 @@ import {AuthenticationService} from "./authentication.service";
 import {UnauthorizedComponent} from "./unauthorized/unauthorized.component";
 import {AuthenticationGuardService} from "./authentication-guard.service";
 import {UserService} from "./user.service";
+import {FormsModule} from "@angular/forms";
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -30,7 +31,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   declarations: [
     ProfileComponent,
