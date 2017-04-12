@@ -2,8 +2,9 @@
  * Created by Marcin Sirocki
  * email: marcinsirocki@gmail.com
  */
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {UserService} from "../user.service";
+import {IUser} from "../user.model";
 
 @Component({
   selector: 'profile',
@@ -11,11 +12,16 @@ import {UserService} from "../user.service";
   styleUrls: ['./profile.component.scss']
 })
 
-export class ProfileComponent {
-
+export class ProfileComponent implements OnInit{
+  user: IUser = this.userService.getUser();
+  users: IUser[] = [];
   constructor(public userService: UserService) {}
 
-  isAdmin(): boolean {
-    return this.userService.getUser().isAdmin;
+  ngOnInit(): void {
+    this.userService.getAllUsers$()
+      .subscribe(users => {
+        console.log(users);
+        this.users = users;
+      });
   }
 }

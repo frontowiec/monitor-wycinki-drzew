@@ -11,7 +11,10 @@ import {AuthenticationGuardService} from "./authentication-guard.service";
 import {UserService} from "./user.service";
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp(new AuthConfig(), http, options);
+  return new AuthHttp(new AuthConfig({
+    headerPrefix: ' ',
+    headerName: 'X-AUTH-TOKEN',
+  }), http, options);
 }
 
 @NgModule({

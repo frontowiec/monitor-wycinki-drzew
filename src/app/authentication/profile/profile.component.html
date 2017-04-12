@@ -1,5 +1,5 @@
 <div id="user-profile">
-  <h1>Witaj, Username</h1>
+  <h1>Witaj, {{user.username}}</h1>
 
   <md-tab-group>
     <md-tab label="Edytuj profil">
@@ -28,7 +28,7 @@
         <button md-button>Zapisz</button>
       </div>
     </md-tab>
-    <md-tab label="List użytkowników" *ngIf="isAdmin()">Lista :)</md-tab>
-    <md-tab label="Załóż profil" *ngIf="isAdmin()">Lista :)</md-tab>
+    <md-tab label="List użytkowników" *ngIf="user.isAdmin">Lista :)</md-tab>
+    <md-tab label="Załóż profil" *ngIf="user.isAdmin">Lista :)</md-tab>
   </md-tab-group>
 </div>
